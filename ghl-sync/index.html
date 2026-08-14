@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>GoHighLevel sync brief</title></head><body><style>
+:root{--ink:#241a44;--soft:#5b5470;--paper:#f7f4f0;--card:#fff;--purple:#3b2a6b;
+ --orange:#e8590c;--green:#0ca678;--red:#c0392b;--line:#e3ddd4;
+ --body:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+ --mono:ui-monospace,"Cascadia Code",Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);
+ -webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:44px 24px 90px}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.12em;color:var(--orange);
+ text-transform:uppercase;margin:0 0 10px}
+h1{font-size:clamp(27px,4vw,38px);line-height:1.06;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:20px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--soft);margin:0 0 26px;font-size:15px}
+.sec{margin:38px 0 0}
+.shd{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;
+ border-bottom:2px solid var(--purple);padding-bottom:9px;margin-bottom:14px}
+.tag{font:600 11px/1 var(--mono);background:var(--purple);color:#fff;padding:5px 8px;
+ border-radius:4px;letter-spacing:.05em}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:13.6px;min-width:620px}
+th{text-align:left;font:600 10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+ color:var(--soft);background:#faf8f5;padding:9px 12px;border-bottom:1px solid var(--line);
+ white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.f{font:600 12.5px/1.5 var(--mono);color:var(--purple);white-space:nowrap}
+td.n{font:700 13px/1.5 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ok{color:var(--green);font-weight:600}.warn{color:var(--orange);font-weight:600}
+.stop{color:var(--red);font-weight:600}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 19px;
+ margin:0 0 14px;font-size:14.4px}
+.panel.q{border-left:4px solid var(--red)}
+.panel.do{border-left:4px solid var(--green)}
+.panel b.hd{display:block;margin-bottom:8px}
+.panel.q b.hd{color:var(--red)}.panel.do b.hd{color:var(--green)}
+ol,ul{margin:0;padding-left:20px}li{margin:7px 0}
+code{font:12.5px/1.5 var(--mono);background:#f0ecf7;color:var(--purple);padding:1.5px 5px;
+ border-radius:3px;word-break:break-word}
+@media (prefers-color-scheme:dark){
+ :root{--paper:#17131f;--card:#1f1a2b;--ink:#efeaf6;--soft:#a79fbb;--line:#332b45;--red:#ef8a7d}
+ th{background:#251f33}
+ code{background:#2d2542;color:#c9bdf0}}
+</style>
+<div class="wrap">
+<p class="eyebrow">GoHighLevel sync &middot; Adrian, Coty, Lem &middot; 13 Aug 2026</p>
+<h1>What GHL needs before any of this can send</h1>
+<p class="sub">Five campaigns are drafted and verified. None can send yet. Everything below was read off the finished drafts and send lists today, so the field names are the literal strings the emails will look for.</p>
+<div class="sec"><div class="shd"><h2>The campaigns</h2><span class="tag">5</span></div>
+<div class="scroll"><table><tr><th>Campaign</th><th>Recipients</th><th>Send unit</th><th>Cadence</th><th>Images</th><th>State</th></tr>
+<tr><td><b>Dental wave 2, every segment</b></td><td class="n">665</td><td>business</td><td>Day 1 / 2 / 3</td><td class="n">665</td><td>ready, blocked on assets</td></tr>
+<tr><td><b>Deserves Better wave 2</b></td><td class="n">245</td><td>business</td><td>Day 1 / 2 / 3</td><td class="n">245</td><td>superseded by the above, decision needed</td></tr>
+<tr><td><b>SGEN early access, founder + Sandbox</b></td><td class="n">list not built</td><td>contact</td><td>Day 1 / 2 / 3</td><td class="n">none</td><td>ready, blocked on two URLs</td></tr>
+<tr><td><b>Chiropractic, 4 segments</b></td><td class="n">list not built</td><td>contact</td><td>Day 0 / 1 / 2 then wave 2</td><td class="n">none</td><td>built, not loaded</td></tr>
+<tr><td><b>Universal, all businesses</b></td><td class="n">1201</td><td>contact</td><td>Day 0 / 1 / 2 then wave 2</td><td class="n">none</td><td>built, not loaded</td></tr>
+</table></div></div>
+<div class="sec"><div class="shd"><h2>Account custom values</h2><span class="tag">CREATE ONCE</span></div>
+<p class="sub" style="margin:0 0 12px">Settings &rarr; Custom Values. These are account-level, not per contact.</p>
+<div class="scroll"><table><tr><th>Name</th><th>Used by</th><th>What goes in it</th></tr>
+<tr><td class="f">app_analytics_url</td><td>SGEN early access</td><td>The analytics view inside their account. Does not exist yet.</td></tr>
+<tr><td class="f">app_url</td><td>SGEN early access</td><td>Where a signed-up user lands to start building. Does not exist yet.</td></tr>
+<tr><td class="f">booking_link</td><td>Dental wave 2, Deserves Better wave 2, SGEN early access, Chiropractic, Universal</td><td>James’s calendar link. Every reply handler in every campaign ends with it, so nothing can be answered until it exists.</td></tr>
+</table></div></div>
+<div class="sec"><div class="shd"><h2>Contact custom fields</h2><span class="tag">25</span></div>
+<p class="sub" style="margin:0 0 12px">The exact merge names the emails use. A field that does not exist renders blank, and several of these sit mid-sentence.</p>
+<div class="scroll"><table><tr><th>Field</th><th>Type</th><th>Campaigns</th></tr>
+<tr><td class="f">best_rank</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">business_name</td><td>custom, text</td><td class="n">4</td></tr>
+<tr><td class="f">city</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">evidence_rank_summary</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">first_name</td><td><span class="ok">built in, do not recreate</span></td><td class="n">1</td></tr>
+<tr><td class="f">found_pins</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">found_pins_fmt</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">heatmap_png_url</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">heatmap_svg_url</td><td>custom, text</td><td class="n">1</td></tr>
+<tr><td class="f">home_rank_ordinal</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">median_rank</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">nemesis_beats_at_pins</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">nemesis_beats_fmt</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">nemesis_maps_url</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">nemesis_name</td><td>custom, text</td><td class="n">4</td></tr>
+<tr><td class="f">nemesis_rating</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">nemesis_reviews</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">practice_name</td><td>custom, text</td><td class="n">1</td></tr>
+<tr><td class="f">rating</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">reviews</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">reviews_fmt</td><td>custom, text</td><td class="n">1</td></tr>
+<tr><td class="f">rivals_above</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">search_phrase</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">street</td><td>custom, text</td><td class="n">2</td></tr>
+<tr><td class="f">top3_pins</td><td>custom, text</td><td class="n">1</td></tr>
+<tr><td class="f">top3_pins_fmt</td><td>custom, text</td><td class="n">2</td></tr>
+</table></div></div>
+<div class="sec"><div class="shd"><h2>Before anything sends</h2><span class="tag">BLOCKERS</span></div>
+<div class="panel do"><b class="hd">Assets and values</b><ol><li><b>Upload 665 heatmap PNGs</b> to the media library, from <code>all-dental-wave2\heatmaps\</code>. 38.7 MB, named by place_id. Send me the base URL afterwards and I will swap it into the send list, which currently holds <code>REPLACE_WITH_HOSTED_BASE_URL</code> as an obvious find-and-replace target.</li><li><b>Create the three custom values above.</b> Two of them, the app URLs, do not exist as pages yet. That is a product question, not a GHL one.</li><li><b>Create the contact custom fields</b> and confirm the import maps to them exactly. Names must match character for character.</li><li><b>Suppress the one contact who asked to be removed</b> from the dental wave 1 send, before wave 2 goes anywhere near them.</li></ol></div>
+<div class="panel q"><b class="hd">Questions only Coty and Lem can answer</b><ol><li><b>Does GHL append its own unsubscribe and postal footer on these workflows?</b> The early access emails have no compliance block in the body, on the assumption that GHL adds one. If it does not, these are signup-list recipients and the block has to go back in. This is the single most important item on the page.</li><li><b>Can GHL see product events?</b> Specifically: has this contact logged in, have they created a site. Without those, the early access sequence cannot branch and everyone gets the same three emails whether or not they have already come back.</li><li><b>Does <code>business_name</code> collide with the built-in contact name field?</b> The chiropractic drafts use <code>practice_name</code> and everything else uses <code>business_name</code>, which is two fields for one thing. Worth settling now rather than after import.</li><li><b>Who owns the sending identity?</b> Dental and early access sign <code>James / Las Vegas</code> as literal text. Chiropractic and universal use <code>{{sender.first_name}} {{sender.last_name}}</code> and sign off as SEO Guarantee. Those are two different senders in the same account.</li><li><b>One send per business, or per contact?</b> James ruled business. The dental lists are already deduplicated that way, 665 businesses out of 1,219 contact rows. The other campaigns are still at contact grain.</li><li><b>Are founder access and Sandbox disjoint lists?</b> If one person can hold both, they receive two near-identical sequences from the same sender in the same week.</li></ol></div>
+<div class="panel q"><b class="hd">One decision that is not a GHL question</b><p style="margin:0">Deserves Better wave 2 (245) and Dental wave 2 (665) overlap by <b>201 businesses</b>. Both are built and both would send the same three emails. Run one or the other. The whole-book version supersedes the other, so my recommendation is to retire Deserves Better wave 2, but nothing has been deleted pending that call.</p></div>
+</div></div></body></html>

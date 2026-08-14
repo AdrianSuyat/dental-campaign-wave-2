@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Email campaigns, current state</title></head><body><style>
+:root{--ink:#15171b;--ink2:#454b54;--ink3:#6e757f;--ground:#f2f3f5;--card:#fff;--card2:#fafbfc;
+ --line:#e0e3e8;--soft:#edeff2;--accent:#d51522;--ok:#0f7554;--okbg:#e4f3ed;
+ --warn:#9a5a08;--warnbg:#fbefdd;--bad:#bb1f1f;--badbg:#fceaea;--neu:#5c646e;--neubg:#eef0f3;
+ --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+ --mono:ui-monospace,"Cascadia Mono",Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.6 var(--ui);
+ -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px 80px}
+.mast{background:#16181c;color:#f2f3f5;border-bottom:3px solid var(--accent);padding:32px 0 26px;
+ margin-bottom:30px}
+.mast .wrap{padding-bottom:0}
+.eyebrow{font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:#828a95;
+ font-weight:700;margin:0 0 9px}
+h1{margin:0 0 8px;font-size:29px;line-height:1.14;letter-spacing:-.025em;font-weight:700}
+.mast p{margin:0;color:#a8b0ba;font-size:13.5px;max-width:74ch}
+h2{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);font-weight:700;
+ margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:11px;
+ margin-bottom:8px}
+.t{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--neu);
+ border-radius:10px;padding:15px 16px}
+.t .n{font-size:31px;font-weight:800;line-height:1;letter-spacing:-.04em}
+.t .l{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);
+ font-weight:700;margin-top:7px}
+.t .x{font-size:11.5px;color:var(--ink3);margin-top:5px;line-height:1.45}
+.t.ok{border-top-color:var(--ok)}.t.ok .n{color:var(--ok)}
+.t.bad{border-top-color:var(--bad)}.t.bad .n{color:var(--bad)}
+.t.warn{border-top-color:var(--warn)}.t.warn .n{color:var(--warn)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:660px}
+th{text-align:left;padding:10px 14px;background:var(--card2);border-bottom:1px solid var(--line);
+ font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);font-weight:700;
+ white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--soft);color:var(--ink2);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+td.seg{font-weight:650;color:var(--ink);white-space:nowrap}
+td.n{font:600 13px/1.5 var(--mono);white-space:nowrap;text-align:right}
+tfoot td{background:var(--card2);font-weight:700;color:var(--ink);border-top:2px solid var(--line)}
+.b{display:inline-block;padding:3px 9px;border-radius:100px;font-size:10.5px;font-weight:700;
+ white-space:nowrap;border:1px solid transparent}
+.b-run{background:#e6f1f8;color:#1d6fa5;border-color:#c2ddee}
+.b-done{background:var(--okbg);color:var(--ok);border-color:#bfe2d5}
+.b-sched{background:var(--neubg);color:var(--neu);border-color:#dcdfe4}
+.b-na{background:var(--neubg);color:var(--ink3);border-color:#dcdfe4;font-weight:600}
+.bar{display:block;height:5px;border-radius:3px;background:var(--soft);margin-top:5px;
+ overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok)}
+.bar.lo i{background:var(--warn)}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--neu);
+ border-radius:10px;padding:15px 18px;margin-bottom:11px;font-size:14px}
+.note.bad{border-left-color:var(--bad);background:var(--badbg)}
+.note.warn{border-left-color:var(--warn);background:var(--warnbg)}
+.note b.h{display:block;margin-bottom:6px;color:var(--ink)}
+.note.bad b.h{color:var(--bad)}.note.warn b.h{color:var(--warn)}
+.foot{margin-top:34px;padding-top:15px;border-top:1px solid var(--line);font-size:12px;
+ color:var(--ink3);line-height:1.7}
+@media (prefers-color-scheme:dark){
+ :root{--ground:#0e1013;--card:#16191e;--card2:#1b1f25;--ink:#eef0f3;--ink2:#b6bdc7;
+  --ink3:#8a929d;--line:#2b3138;--soft:#242930;--okbg:rgba(76,201,155,.13);--ok:#4cc99b;
+  --warn:#e2a44f;--warnbg:rgba(226,164,79,.13);--bad:#f2777f;--badbg:rgba(242,119,127,.13);
+  --neubg:rgba(152,161,171,.13);--neu:#98a1ab}
+ .b-run{background:rgba(95,176,230,.13);color:#5fb0e6;border-color:rgba(95,176,230,.3)}}
+@media(max-width:600px){h1{font-size:24px}}
+</style>
+<div class="mast"><div class="wrap"><p class="eyebrow">SGEN &middot; Email current state &middot; for Sprint 1 tracker</p><h1>Live email campaigns, as at 13 August 2026</h1><p>Percentages are as reported in GoHighLevel. Counts in brackets are derived from those percentages, so treat them as approximate rather than read off the platform.</p></div></div>
+<div class="wrap">
+<h2>Across everything</h2><div class="tiles">
+<div class="t "><div class="n">859</div><div class="l">emails sent</div><div class="x">across 6 reported sends</div></div>
+<div class="t "><div class="n">540</div><div class="l">unique contacts</div><div class="x">2nd and 3rd attempts reach the same people</div></div>
+<div class="t ok"><div class="n">828</div><div class="l">delivered</div><div class="x">~96.4% of sends</div></div>
+<div class="t "><div class="n">30.6%</div><div class="l">blended open</div><div class="x">~253 opens</div></div>
+<div class="t bad"><div class="n">0.00%</div><div class="l">click rate</div><div class="x">every campaign, see below</div></div>
+<div class="t bad"><div class="n">0</div><div class="l">replies tracked</div><div class="x">not configured in GHL</div></div>
+</div>
+<h2>By campaign</h2><div class="tw"><table><thead><tr><th>Segment</th><th>Send</th><th style="text-align:right">Targeted</th><th style="text-align:right">Delivered</th><th style="text-align:right">Bounced</th><th>Open rate</th><th style="text-align:right">Click</th><th>Status</th></tr></thead><tbody>
+<tr><td class="seg">Deserve Better</td><td>Day 8 follow-up</td><td class="n">201</td><td class="n">97.51%<br><span style="color:var(--ink3);font-weight:400">~196</span></td><td class="n">2.49%<br><span style="color:var(--ink3);font-weight:400">~5</span></td><td><b>48.98%</b> <span style="color:var(--ink3)">~96 opens</span><span class="bar"><i style="width:49%"></i></span></td><td class="n">0.00%</td><td><span class="b b-run">running</span></td></tr>
+<tr><td class="seg">Invisible</td><td>2nd attempt</td><td class="n">194</td><td class="n">96.39%<br><span style="color:var(--ink3);font-weight:400">~187</span></td><td class="n">&#8211;<br><span style="color:var(--ink3);font-weight:400">~7</span></td><td><b>26.20%</b> <span style="color:var(--ink3)">~49 opens</span><span class="bar"><i style="width:26%"></i></span></td><td class="n">0.00%</td><td><span class="b b-done">completed</span></td></tr>
+<tr><td class="seg">Invisible</td><td>3rd attempt</td><td class="n">192</td><td class="n">96.35%<br><span style="color:var(--ink3);font-weight:400">~185</span></td><td class="n">&#8211;<br><span style="color:var(--ink3);font-weight:400">~7</span></td><td><b>33.51%</b> <span style="color:var(--ink3)">~62 opens</span><span class="bar"><i style="width:34%"></i></span></td><td class="n">0.00%</td><td><span class="b b-run">running</span></td></tr>
+<tr><td class="seg">Tiny</td><td>2nd attempt</td><td class="n">128</td><td class="n">95.31%<br><span style="color:var(--ink3);font-weight:400">~122</span></td><td class="n">&#8211;<br><span style="color:var(--ink3);font-weight:400">~6</span></td><td><b>20.49%</b> <span style="color:var(--ink3)">~25 opens</span><span class="bar lo"><i style="width:20%"></i></span></td><td class="n">0.00%</td><td><span class="b b-done">completed</span></td></tr>
+<tr><td class="seg">Tiny</td><td>3rd attempt</td><td class="n">127</td><td class="n">96.06%<br><span style="color:var(--ink3);font-weight:400">~122</span></td><td class="n">&#8211;<br><span style="color:var(--ink3);font-weight:400">~5</span></td><td><b>14.75%</b> <span style="color:var(--ink3)">~18 opens</span><span class="bar lo"><i style="width:15%"></i></span></td><td class="n">0.00%</td><td><span class="b b-run">running</span></td></tr>
+<tr><td class="seg">OPL-Spearhead</td><td>2nd attempt</td><td class="n">17</td><td class="n">94.12%<br><span style="color:var(--ink3);font-weight:400">~16</span></td><td class="n">&#8211;<br><span style="color:var(--ink3);font-weight:400">~1</span></td><td><b>18.75%</b> <span style="color:var(--ink3)">~3 opens</span><span class="bar lo"><i style="width:19%"></i></span></td><td class="n">0.00%</td><td><span class="b b-done">completed</span></td></tr>
+<tr><td class="seg">OPL-Spearhead</td><td>3rd attempt</td><td class="n" colspan="5" style="text-align:left;color:var(--ink3)">not sent yet, testing phase</td><td><span class="b b-sched">scheduled</span></td></tr>
+</tbody><tfoot><tr><td class="seg">Total</td><td>6 sends</td><td class="n">859</td><td class="n">~828</td><td class="n">~31</td><td>30.6% blended</td><td class="n">0.00%</td><td></td></tr></tfoot></table></div>
+<h2>Cold sequence, Email 1-B (Day 0)</h2><div class="tiles">
+<div class="t warn"><div class="n">87.90%</div><div class="l">delivered</div></div>
+<div class="t "><div class="n">49.08%</div><div class="l">open rate</div></div>
+<div class="t bad"><div class="n">0.00%</div><div class="l">click rate</div></div>
+<div class="t "><div class="n">0.92%</div><div class="l">reply rate</div></div>
+<div class="t bad"><div class="n">12.10%</div><div class="l">bounce rate</div></div>
+<div class="t "><div class="n">0.00%</div><div class="l">unsubscribe</div></div>
+</div>
+<h2>Three things for the tracker</h2>
+<div class="note bad"><b class="h">Click rate is 0.00% everywhere because these emails contain no links</b>That is how they were written, not a tracking fault and not a performance result. Click rate is simply not a usable metric for this phase, and it should be recorded as not applicable rather than as a zero. Wave 2 changes this: the heatmap image and a link to the competitor listing both go in the body, so clicks become measurable from that send onward.</div>
+<div class="note warn"><b class="h">The cold sequence is bouncing at 12.1%, and that is the one number to act on</b>Deserve Better is at 2.49%, which is healthy. 12.1% is not. Above roughly 2% you start paying for it in sending reputation, and because these campaigns share a sending domain the damage is not contained to the one sequence. Worth a list-hygiene pass before that sequence sends again.</div>
+<div class="note"><b class="h">Reply rate and conversions are not tracked, and they are the two that matter</b>Deserve Better opened at 48.98%% and produced no recorded replies. That is the whole finding: people are reading and not acting. Opens tell us the subject line and the sending reputation work. Nothing currently tells us whether the offer does. Reply counts can be pulled manually if a number is needed this week, but it needs setting up properly in GHL.</div>
+<h2>One pattern worth noting</h2>
+<div class="note">Tiny is falling across attempts, 20.49%% then 14.75%%, which reads as fatigue. Invisible went the other way, 26.20%% then 33.51%%. Same cadence, opposite direction, so it is worth understanding before either gets another send.</div>
+<div class="foot">Prepared for Clark Pesa, Sprint 1 Email and SMS current-state audit. Percentages as reported in GoHighLevel on 13 August 2026. Bracketed counts are derived from those percentages and rounded, so they will differ slightly from the platform. Reply rate, unsubscribe rate and conversions are not currently instrumented for most campaigns and are marked as such rather than reported as zero.</div>
+</div></body></html>

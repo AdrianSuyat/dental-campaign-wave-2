@@ -1,0 +1,329 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Outreach send board</title></head><body><style>
+:root{
+  color-scheme: light;
+  --ground:#faf8f4; --panel:#ffffff; --panel-2:#f4f1ea;
+  --ink:#1b1810; --ink-2:#5a5348; --ink-3:#8b8375;
+  --rule:#e5e0d4; --rule-2:#d3cdbd; --track:#ece7dc;
+  /* ordinal ramp, one hue, validated light-end 2.82:1 on this surface */
+  --s1:#0d366b; --s2:#1c5cab; --s3:#2a78d6; --s4:#5598e7; --s0:#b9b2a2;
+  /* verticals, categorical slots 1-3, all-pairs validated */
+  --dental:#2a78d6; --chiro:#eb6834; --opto:#1baf7a;
+  --good:#0ca30c; --warning:#fab219; --critical:#d03b3b;
+  --sans:ui-sans-serif,"Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"Cascadia Code","Cascadia Mono",Consolas,"SF Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#17150f; --panel:#201d16; --panel-2:#282419;
+    --ink:#f4f1e8; --ink-2:#b6ae9c; --ink-3:#867e6d;
+    --rule:#332e22; --rule-2:#453e2e; --track:#2b2719;
+    --s1:#184f95; --s2:#2a78d6; --s3:#5598e7; --s4:#86b6ef; --s0:#5d5647;
+    --dental:#3987e5; --chiro:#d95926; --opto:#199e70;
+    --good:#0ca30c; --warning:#fab219; --critical:#d03b3b;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#17150f; --panel:#201d16; --panel-2:#282419;
+  --ink:#f4f1e8; --ink-2:#b6ae9c; --ink-3:#867e6d;
+  --rule:#332e22; --rule-2:#453e2e; --track:#2b2719;
+  --s1:#184f95; --s2:#2a78d6; --s3:#5598e7; --s4:#86b6ef; --s0:#5d5647;
+  --dental:#3987e5; --chiro:#d95926; --opto:#199e70;
+  --good:#0ca30c; --warning:#fab219; --critical:#d03b3b;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums}
+.wrap{max-width:1020px;margin:0 auto;padding:40px 24px 96px}
+
+.eyebrow{font:600 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 14px}
+.eyebrow b{color:var(--ink-2);font-weight:600}
+h1{font:700 clamp(30px,4.6vw,46px)/1.02 var(--sans);letter-spacing:-.03em;margin:0 0 10px;
+  text-wrap:balance}
+.standfirst{color:var(--ink-2);font-size:16.5px;margin:0 0 30px;max-width:64ch}
+
+.halt{display:flex;gap:14px;align-items:flex-start;background:var(--panel);
+  border:1px solid var(--rule-2);border-left:4px solid var(--critical);border-radius:8px;
+  padding:15px 18px;margin:0 0 34px}
+.halt .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--critical);margin-top:7px}
+.halt h2{font:700 15px/1.4 var(--sans);margin:0 0 4px;letter-spacing:-.01em}
+.halt p{margin:0;font-size:14.2px;color:var(--ink-2)}
+.halt code{font:12.5px/1 var(--mono);background:var(--panel-2);padding:2px 5px;border-radius:3px;
+  color:var(--ink)}
+
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;
+  margin:0 0 42px}
+.fig{background:var(--panel);padding:17px 19px 16px}
+.fig .k{font:600 10.5px/1.4 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px}
+.fig .v{font:700 30px/1 var(--sans);letter-spacing:-.03em;margin:0 0 5px}
+.fig .n{font-size:12.8px;color:var(--ink-2);margin:0;line-height:1.4}
+.fig.hero .v{color:var(--s3)}
+
+section{margin:0 0 46px}
+h2.sh{font:700 20px/1.2 var(--sans);letter-spacing:-.02em;margin:0 0 5px;padding-bottom:9px;
+  border-bottom:2px solid var(--ink);display:inline-block}
+.sub{color:var(--ink-2);font-size:14.4px;margin:9px 0 22px;max-width:68ch}
+
+/* ---- donut + its key, side by side ---- */
+.split{display:grid;grid-template-columns:minmax(210px,262px) 1fr;gap:34px;align-items:center}
+@media (max-width:660px){.split{grid-template-columns:1fr;gap:22px}}
+.donut{position:relative;width:100%;max-width:262px;margin:0 auto}
+.donut svg{display:block;width:100%;height:auto;transform:rotate(-90deg)}
+.donut .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;pointer-events:none}
+.donut .mid b{font:700 27px/1 var(--sans);letter-spacing:-.03em}
+.donut .mid span{font:600 10px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:5px}
+.key{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.key .r{display:grid;grid-template-columns:13px 1fr auto auto;gap:11px;align-items:center;
+  background:var(--panel);padding:11px 15px}
+.key .r i{width:13px;height:13px;border-radius:3px}
+.key .r .t{font-size:13.9px;line-height:1.35}
+.key .r .t em{font-style:normal;color:var(--ink-3);font-size:12.4px;display:block}
+.key .r .v{font:700 14.2px/1 var(--mono);white-space:nowrap}
+.key .r .p{font:600 12.4px/1 var(--mono);color:var(--ink-3);white-space:nowrap;min-width:44px;
+  text-align:right}
+
+/* ---- stage strip ---- */
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+  margin:26px 0 0}
+.stage{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:15px 17px;
+  border-top:3px solid var(--s3)}
+.stage.next{border-top-color:var(--s4)}
+.stage.later{border-top-color:var(--s0)}
+.stage .n{font:600 10px/1.4 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 7px}
+.stage .v{font:700 23px/1 var(--sans);letter-spacing:-.02em;margin:0 0 6px}
+.stage p{margin:0;font-size:12.9px;color:var(--ink-2);line-height:1.45}
+
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.6px;min-width:640px}
+th{text-align:left;font:600 10.5px/1.4 var(--mono);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);padding:12px 14px;border-bottom:1px solid var(--rule-2);white-space:nowrap;
+  background:var(--panel-2)}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+td.n{font:600 13.4px/1 var(--mono);white-space:nowrap}
+td.name{font-weight:600}
+tfoot td{background:var(--panel-2);font-weight:700;border-top:1px solid var(--rule-2)}
+.mini{display:flex;align-items:center;gap:9px;min-width:130px}
+.mini .t{position:relative;flex:1;height:7px;background:var(--track);border-radius:4px}
+.mini .t i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--s3)}
+.mini em{font:600 12.4px/1 var(--mono);font-style:normal;white-space:nowrap}
+
+.pill{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;
+  border-radius:4px;border:1px solid var(--rule-2);color:var(--ink-2);background:var(--panel-2)}
+.pill i{width:7px;height:7px;border-radius:50%;flex:none}
+.pill.run i{background:var(--good)}
+.pill.done i{background:var(--ink-3)}
+.pill.hold i{background:var(--warning)}
+.pill.stop i{background:var(--critical)}
+.pill.open i{background:var(--chiro)}
+
+.notes{background:var(--panel);border:1px solid var(--rule);border-radius:8px;
+  padding:5px 20px 5px 22px}
+.notes ul{margin:0;padding:0 0 0 18px}
+.notes li{margin:13px 0;font-size:14.2px;color:var(--ink-2)}
+.notes li b{color:var(--ink)}
+.notes code{font:12.4px/1 var(--mono);background:var(--panel-2);padding:2px 5px;border-radius:3px;
+  color:var(--ink)}
+
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule);
+  font:11.8px/1.7 var(--mono);color:var(--ink-3)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow"><b>SEO Guarantee</b> &middot; outreach desk &middot; figures as at <b>17 August 2026</b></p>
+  <h1>Outreach Send Board</h1>
+  <p class="standfirst">Every practice on the three books, and which stage of the outreach it sits at.
+  Wave 1 is the three attempts. Wave 2 is the second approach, and it only starts once wave 1 has
+  finished for that book.</p>
+
+  <div class="halt">
+    <span class="dot"></span>
+    <div>
+      <h2>Sending is halted. Nothing in the queue can go out.</h2>
+      <p>Cold outreach was going from <code>reply@sgen.com</code>, a root domain, on a single
+      account. Forty warmed addresses were bought and never wired up. No campaign sends until the
+      multi-sender setup is working in GoHighLevel.</p>
+    </div>
+  </div>
+
+  <div class="figs">
+    <div class="fig hero"><p class="k">Contacted so far</p><p class="v">540</p>
+      <p class="n">all dental, across 859 emails and three attempts</p></div>
+    <div class="fig"><p class="k">On the three books</p><p class="v">2,676</p>
+      <p class="n">1,219 dental, 818 optometry, 639 chiropractic</p></div>
+    <div class="fig"><p class="k">Never contacted</p><p class="v">2,136</p>
+      <p class="n">80% of the book, including every optometry and chiropractic practice</p></div>
+    <div class="fig"><p class="k">Cannot be emailed</p><p class="v">490</p>
+      <p class="n">no address on file, so no campaign reaches them</p></div>
+  </div>
+
+  <section>
+    <h2 class="sh">The whole book, by stage</h2>
+    <p class="sub">Every practice counted once, so the five parts add up to 2,676. Dental has been
+    through wave 1. Optometry and chiropractic are next and have had nothing at all.</p>
+
+    <div class="split">
+      <div class="donut">
+        <svg viewBox="0 0 42 42" role="img" aria-label="Five stages of the book, adding to 2,676 practices">
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--track)" stroke-width="7"></circle>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s1)" stroke-width="7"
+            stroke-dasharray="20.2 79.8" stroke-dashoffset="0"></circle>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s2)" stroke-width="7"
+            stroke-dasharray="25.4 74.6" stroke-dashoffset="-20.2"></circle>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s3)" stroke-width="7"
+            stroke-dasharray="33.9 66.1" stroke-dashoffset="-45.6"></circle>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s4)" stroke-width="7"
+            stroke-dasharray="2.2 97.8" stroke-dashoffset="-79.5"></circle>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s0)" stroke-width="7"
+            stroke-dasharray="18.3 81.7" stroke-dashoffset="-81.7"></circle>
+        </svg>
+        <div class="mid"><b>2,676</b><span>practices</span></div>
+      </div>
+
+      <div class="key">
+        <div class="r"><i style="background:var(--s1)"></i>
+          <div class="t">Dental, contacted in wave 1<em>three attempts, 859 emails</em></div>
+          <div class="v">540</div><div class="p">20.2%</div></div>
+        <div class="r"><i style="background:var(--s2)"></i>
+          <div class="t">Dental, not yet contacted<em>on the book, never emailed</em></div>
+          <div class="v">679</div><div class="p">25.4%</div></div>
+        <div class="r"><i style="background:var(--s3)"></i>
+          <div class="t">Optometry and chiropractic, ready for wave 1<em>456 sends reach these</em></div>
+          <div class="v">908</div><div class="p">33.9%</div></div>
+        <div class="r"><i style="background:var(--s4)"></i>
+          <div class="t">Optometry and chiropractic, reachable but not in the send<em>filtered out on rank or a missing field</em></div>
+          <div class="v">59</div><div class="p">2.2%</div></div>
+        <div class="r"><i style="background:var(--s0)"></i>
+          <div class="t">No email address on file<em>unreachable until the list is enriched</em></div>
+          <div class="v">490</div><div class="p">18.3%</div></div>
+      </div>
+    </div>
+
+    <div class="stages">
+      <div class="stage"><p class="n">Stage 1 &middot; done</p><p class="v">540</p>
+        <p>Dental wave 1. Three attempts sent, 859 emails, 540 practices reached.</p></div>
+      <div class="stage next"><p class="n">Stage 2 &middot; next</p><p class="v">908</p>
+        <p>Optometry and chiropractic wave 1. Five emails written, 456 sends, nothing sent yet.</p></div>
+      <div class="stage later"><p class="n">Stage 3 &middot; after that</p><p class="v">559</p>
+        <p>Dental wave 2, the second approach. Written and waiting on wave 1 finishing and the
+        sender setup.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sh">Dental wave 1, what has gone out</h2>
+    <p class="sub">One category. The old segment split into Deserve Better, Invisible, Tiny and OPL
+    Spearhead is not shown, because it is all dental. Percentages are as GoHighLevel reported them on
+    13 August, and counts are derived from those percentages, so treat them as close rather than
+    exact.</p>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Attempt</th><th>Emails</th><th>Delivered</th><th>Bounced</th>
+          <th>Open rate</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Attempt 1</td>
+            <td class="n" style="color:var(--ink-3)">not in the report</td>
+            <td class="n">87.9%</td><td class="n">12.1%</td>
+            <td><div class="mini"><div class="t"><i style="width:49.1%"></i></div><em>49.1%</em></div></td>
+            <td><span class="pill run"><i></i>Running</span></td></tr>
+          <tr><td class="name">Attempt 2</td><td class="n">339</td>
+            <td class="n">325 &nbsp;95.9%</td><td class="n">14 &nbsp;4.1%</td>
+            <td><div class="mini"><div class="t"><i style="width:23.7%"></i></div><em>23.7%</em></div></td>
+            <td><span class="pill done"><i></i>Completed</span></td></tr>
+          <tr><td class="name">Attempt 3</td><td class="n">319</td>
+            <td class="n">307 &nbsp;96.2%</td><td class="n">12 &nbsp;3.8%</td>
+            <td><div class="mini"><div class="t"><i style="width:26.1%"></i></div><em>26.1%</em></div></td>
+            <td><span class="pill run"><i></i>Running</span></td></tr>
+          <tr><td class="name">Follow-up</td><td class="n">201</td>
+            <td class="n">196 &nbsp;97.5%</td><td class="n">5 &nbsp;2.5%</td>
+            <td><div class="mini"><div class="t"><i style="width:49%"></i></div><em>49.0%</em></div></td>
+            <td><span class="pill run"><i></i>Running</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total sent</td><td class="n">859</td><td class="n">828</td><td class="n">31</td>
+          <td class="n">30.6% blended</td><td></td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sh">The queue</h2>
+    <p class="sub">Written, checked and waiting. Sends is the number of emails. Reach is the number of
+    practices those emails land in front of, which is larger because one address often serves a whole
+    chain.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Campaign</th><th>Wave</th><th>Sends</th><th>Reaches</th><th>State</th>
+          <th>Waiting on</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Optometry and chiropractic</td><td class="n">Wave 1</td>
+            <td class="n">456</td><td class="n">908</td>
+            <td><span class="pill stop"><i></i>Blocked</span></td>
+            <td>Sender setup. 48 sends need an address check first.</td></tr>
+          <tr><td class="name">Dental</td><td class="n">Wave 2</td><td class="n">559</td>
+            <td class="n">559</td><td><span class="pill stop"><i></i>Blocked</span></td>
+            <td>Wave 1 to finish, 665 images to host, booking link, sender setup</td></tr>
+          <tr><td class="name">Post-call emails</td><td class="n">On call outcome</td>
+            <td class="n">per outcome</td><td class="n">Coty&rsquo;s list</td>
+            <td><span class="pill stop"><i></i>Blocked</span></td>
+            <td>SGen logo, a booking link that makes a meeting, James on the six triggers</td></tr>
+          <tr><td class="name">Universal, all businesses</td><td class="n">Wave 1</td>
+            <td class="n">1,201</td><td class="n">1,201</td>
+            <td><span class="pill hold"><i></i>Not loaded</span></td>
+            <td>Overlaps the two above. Decide which campaign owns the list.</td></tr>
+          <tr><td class="name">SGEN early access</td><td class="n">Wave 1</td>
+            <td class="n" style="color:var(--ink-3)">list not built</td>
+            <td class="n" style="color:var(--ink-3)">not known</td>
+            <td><span class="pill hold"><i></i>Not started</span></td>
+            <td>Two product URLs that do not exist yet</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sh">What the numbers are telling us</h2>
+    <div class="notes"><ul>
+      <li><b>Two of the three books have never been touched.</b> Every email so far went to dental.
+      All 818 optometry and 639 chiropractic practices are still cold.</li>
+      <li><b>490 practices cannot be emailed by anyone.</b> A third of the optometry and
+      chiropractic books have no address on file. No copy decision fixes that, only enrichment, and
+      it is the largest single block of unreachable prospects we have.</li>
+      <li><b>Attempt 1 bounced at 12.1%, and that is the one figure to act on.</b> The later attempts
+      run under 5%. Above roughly 2% you pay for it in sending reputation, and the cause is now known:
+      cold sending from a root domain on one account.</li>
+      <li><b>Click rate is 0.00% everywhere, and that is not a result.</b> None of the sent emails
+      contained a link, so there was nothing to click. Record it as not applicable. Wave 2 puts a
+      competitor link and an image in the body, so clicks become measurable from that send onward.</li>
+      <li><b>No replies are being tracked.</b> The follow-up opened at 49% and produced no recorded
+      replies. Opens tell us the subject line and the sending reputation work. Nothing currently
+      tells us whether the offer does.</li>
+      <li><b>One send needs its attempt number confirming.</b> GoHighLevel labels it
+      &ldquo;Day 8 follow-up&rdquo; rather than an attempt, so it is shown separately rather than
+      folded into a guess. Lem can settle which attempt it was.</li>
+    </ul></div>
+  </section>
+
+  <footer>
+    Delivery and open figures as reported in GoHighLevel on 13 August 2026; counts derived from those
+    percentages and rounded. Attempt 2 and attempt 3 are the four dental segments added together.<br>
+    Book sizes, reachable counts and queue sizes counted on 17 August 2026 from the 151-column dental
+    payload, MASTER-chiropractic.csv, MASTER-optometry.csv and the built send lists.<br>
+    No practice names or contact addresses appear on this page.
+  </footer>
+
+</div>
+</body></html>

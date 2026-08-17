@@ -138,7 +138,58 @@ tfoot td{background:var(--panel-2);font-weight:700;border-top:1px solid var(--ru
 
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule);
   font:11.8px/1.7 var(--mono);color:var(--ink-3)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---- interaction: hover a segment or a key row, both light up ---- */
+.donut svg{overflow:visible}
+.seg{
+  transition:stroke-width .18s ease, opacity .18s ease;
+  cursor:pointer;transform-origin:21px 21px;
+}
+.donut.armed .seg{opacity:.32}
+.donut.armed .seg.on{opacity:1;stroke-width:8.6}
+.seg:focus-visible{outline:none;stroke-width:8.6}
+.donut .mid b,.donut .mid span{transition:color .15s ease}
+
+.key .r{cursor:pointer;transition:background .15s ease}
+.key .r:hover,.key .r.on{background:var(--panel-2)}
+.key .r.on .v{color:var(--ink)}
+.key .r:focus-visible{outline:2px solid var(--s3);outline-offset:-2px}
+
+.tip{
+  position:fixed;z-index:40;pointer-events:none;opacity:0;
+  transform:translate(-50%,-124%);transition:opacity .12s ease;
+  background:var(--ink);color:var(--ground);
+  border-radius:7px;padding:9px 12px;max-width:250px;
+  box-shadow:0 6px 22px rgba(0,0,0,.26);
+}
+.tip.show{opacity:1}
+.tip b{display:block;font:700 13.2px/1.3 var(--sans);margin-bottom:3px}
+.tip s{display:block;text-decoration:none;font:600 17px/1 var(--mono);margin-bottom:2px}
+.tip i{font-style:normal;font:11.6px/1.4 var(--mono);opacity:.72}
+
+/* draw-in: arcs sweep out from nothing on load */
+.donut.draw .seg{stroke-dasharray:0 100!important}
+.donut .seg{transition:stroke-width .18s ease, opacity .18s ease,
+  stroke-dasharray .85s cubic-bezier(.22,.68,.36,1)}
+.seg:nth-of-type(2){transition-delay:0s,0s,.05s}
+.seg:nth-of-type(3){transition-delay:0s,0s,.14s}
+.seg:nth-of-type(4){transition-delay:0s,0s,.23s}
+.seg:nth-of-type(5){transition-delay:0s,0s,.32s}
+.seg:nth-of-type(6){transition-delay:0s,0s,.41s}
+
+/* mini bars in the tables grow in */
+.mini .t i{transition:width .8s cubic-bezier(.22,.68,.36,1)}
+.grow .mini .t i{width:0!important}
+
+.stage{transition:transform .16s ease, border-top-width .16s ease}
+.stage:hover{transform:translateY(-2px)}
+tbody tr{transition:background .13s ease}
+tbody tr:hover{background:var(--panel-2)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .donut.draw .seg{stroke-dasharray:inherit!important}
+  .grow .mini .t i{width:auto!important}
+}
 </style>
 
 <div class="wrap">
@@ -177,36 +228,46 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule);
 
     <div class="split">
       <div class="donut">
-        <svg viewBox="0 0 42 42" role="img" aria-label="Five stages of the book, adding to 2,676 practices">
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--track)" stroke-width="7"></circle>
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s1)" stroke-width="7"
+        <svg viewBox="0 0 42 42" aria-label="Five stages of the book, adding to 2,676 practices">
+          <circle class="ring" cx="21" cy="21" r="15.9" fill="none" stroke="var(--track)" stroke-width="7"></circle>
+          <circle class="seg" data-i="0" tabindex="0" role="img"
+            aria-label="Dental, contacted in wave 1: 540 practices, 20.2 percent"
+            cx="21" cy="21" r="15.9" fill="none" stroke="var(--s1)" stroke-width="7"
             stroke-dasharray="20.2 79.8" stroke-dashoffset="0"></circle>
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s2)" stroke-width="7"
+          <circle class="seg" data-i="1" tabindex="0" role="img"
+            aria-label="Dental, not yet contacted: 679 practices, 25.4 percent"
+            cx="21" cy="21" r="15.9" fill="none" stroke="var(--s2)" stroke-width="7"
             stroke-dasharray="25.4 74.6" stroke-dashoffset="-20.2"></circle>
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s3)" stroke-width="7"
+          <circle class="seg" data-i="2" tabindex="0" role="img"
+            aria-label="Optometry and chiropractic, ready for wave 1: 908 practices, 33.9 percent"
+            cx="21" cy="21" r="15.9" fill="none" stroke="var(--s3)" stroke-width="7"
             stroke-dasharray="33.9 66.1" stroke-dashoffset="-45.6"></circle>
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s4)" stroke-width="7"
+          <circle class="seg" data-i="3" tabindex="0" role="img"
+            aria-label="Optometry and chiropractic, reachable but not in the send: 59 practices, 2.2 percent"
+            cx="21" cy="21" r="15.9" fill="none" stroke="var(--s4)" stroke-width="7"
             stroke-dasharray="2.2 97.8" stroke-dashoffset="-79.5"></circle>
-          <circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--s0)" stroke-width="7"
+          <circle class="seg" data-i="4" tabindex="0" role="img"
+            aria-label="No email address on file: 490 practices, 18.3 percent"
+            cx="21" cy="21" r="15.9" fill="none" stroke="var(--s0)" stroke-width="7"
             stroke-dasharray="18.3 81.7" stroke-dashoffset="-81.7"></circle>
         </svg>
-        <div class="mid"><b>2,676</b><span>practices</span></div>
+        <div class="mid"><b id="midv">2,676</b><span id="midk">practices</span></div>
       </div>
 
-      <div class="key">
-        <div class="r"><i style="background:var(--s1)"></i>
+      <div class="key" id="key">
+        <div class="r" data-i="0" tabindex="0"><i style="background:var(--s1)"></i>
           <div class="t">Dental, contacted in wave 1<em>three attempts, 859 emails</em></div>
           <div class="v">540</div><div class="p">20.2%</div></div>
-        <div class="r"><i style="background:var(--s2)"></i>
+        <div class="r" data-i="1" tabindex="0"><i style="background:var(--s2)"></i>
           <div class="t">Dental, not yet contacted<em>on the book, never emailed</em></div>
           <div class="v">679</div><div class="p">25.4%</div></div>
-        <div class="r"><i style="background:var(--s3)"></i>
+        <div class="r" data-i="2" tabindex="0"><i style="background:var(--s3)"></i>
           <div class="t">Optometry and chiropractic, ready for wave 1<em>456 sends reach these</em></div>
           <div class="v">908</div><div class="p">33.9%</div></div>
-        <div class="r"><i style="background:var(--s4)"></i>
+        <div class="r" data-i="3" tabindex="0"><i style="background:var(--s4)"></i>
           <div class="t">Optometry and chiropractic, reachable but not in the send<em>filtered out on rank or a missing field</em></div>
           <div class="v">59</div><div class="p">2.2%</div></div>
-        <div class="r"><i style="background:var(--s0)"></i>
+        <div class="r" data-i="4" tabindex="0"><i style="background:var(--s0)"></i>
           <div class="t">No email address on file<em>unreachable until the list is enriched</em></div>
           <div class="v">490</div><div class="p">18.3%</div></div>
       </div>
@@ -326,4 +387,82 @@ footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule);
   </footer>
 
 </div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var STAGES = [
+    {n:"Dental, contacted in wave 1", v:"540", p:"20.2% of the book",
+     d:"Three attempts, 859 emails"},
+    {n:"Dental, not yet contacted",   v:"679", p:"25.4% of the book",
+     d:"On the book, never emailed"},
+    {n:"Optometry and chiropractic, ready for wave 1", v:"908", p:"33.9% of the book",
+     d:"456 sends reach these, nothing sent yet"},
+    {n:"Reachable but not in the send", v:"59", p:"2.2% of the book",
+     d:"Filtered out on rank or a missing field"},
+    {n:"No email address on file",    v:"490", p:"18.3% of the book",
+     d:"Unreachable until the list is enriched"}
+  ];
+
+  var donut = document.querySelector('.donut');
+  var segs  = Array.prototype.slice.call(document.querySelectorAll('.seg'));
+  var rows  = Array.prototype.slice.call(document.querySelectorAll('.key .r'));
+  var tip   = document.getElementById('tip');
+  var midv  = document.getElementById('midv');
+  var midk  = document.getElementById('midk');
+  if (!donut || !segs.length) { return; }
+
+  function show(i, x, y){
+    var s = STAGES[i];
+    if (!s) { return; }
+    tip.innerHTML = '<b>' + s.n + '</b><s>' + s.v + '</s><i>' + s.p + ' &middot; ' + s.d + '</i>';
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+    tip.classList.add('show');
+    donut.classList.add('armed');
+    segs.forEach(function(el, j){ el.classList.toggle('on', j === i); });
+    rows.forEach(function(el, j){ el.classList.toggle('on', j === i); });
+    midv.textContent = s.v;
+    midk.textContent = s.n.split(',')[0];
+  }
+
+  function clear(){
+    tip.classList.remove('show');
+    donut.classList.remove('armed');
+    segs.forEach(function(el){ el.classList.remove('on'); });
+    rows.forEach(function(el){ el.classList.remove('on'); });
+    midv.textContent = '2,676';
+    midk.textContent = 'practices';
+  }
+
+  function centreOf(el){
+    var r = el.getBoundingClientRect();
+    return [r.left + r.width / 2, r.top + r.height / 2];
+  }
+
+  segs.concat(rows).forEach(function(el){
+    var i = parseInt(el.getAttribute('data-i'), 10);
+    el.addEventListener('mousemove', function(e){ show(i, e.clientX, e.clientY); });
+    el.addEventListener('mouseenter', function(e){ show(i, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', clear);
+    el.addEventListener('focus', function(){ var c = centreOf(el); show(i, c[0], c[1]); });
+    el.addEventListener('blur', clear);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { clear(); } });
+
+  // draw the arcs and grow the table bars once, on load
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) {
+    donut.classList.add('draw');
+    document.body.classList.add('grow');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        donut.classList.remove('draw');
+        document.body.classList.remove('grow');
+      });
+    });
+  }
+})();
+</script>
 </body></html>

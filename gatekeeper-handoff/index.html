@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Gatekeeper to decision maker</title></head><body><style>
+:root{--ink:#241a44;--soft:#5b5470;--paper:#f7f4f0;--card:#fff;--purple:#3b2a6b;
+ --orange:#e8590c;--green:#0ca678;--red:#c0392b;--line:#e3ddd4;
+ --body:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+ --mono:ui-monospace,"Cascadia Code",Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.62 var(--body);
+ -webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:44px 24px 90px}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.12em;color:var(--red);
+ text-transform:uppercase;margin:0 0 10px}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.05;margin:0 0 8px;letter-spacing:-.025em}
+.sub{color:var(--soft);margin:0 0 26px;font-size:15px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 19px;
+ margin:0 0 14px;font-size:14px}
+.panel.src{border-left:4px solid var(--green)}
+.panel.warn{border-left:4px solid var(--red)}
+.panel.rules{border-left:4px solid var(--orange);margin-bottom:30px}
+.panel b.hd{display:block;margin-bottom:7px}
+.panel.warn b.hd{color:var(--red)}
+.panel ul{margin:0;padding-left:19px}.panel li{margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:13.2px;margin:4px 0 0}
+td{padding:6px 10px 6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{white-space:nowrap;font:600 12px/1.5 var(--mono);color:var(--green)}
+.num{font:700 13px/1.5 var(--mono);color:var(--red)}
+.scroll{overflow-x:auto}
+.wave{margin:42px 0 0}
+.whd{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;
+ border-bottom:2px solid var(--purple);padding-bottom:9px;margin-bottom:16px}
+.whd h2{font-size:21px;margin:0;letter-spacing:-.01em}
+.tag{font:600 11px/1 var(--mono);background:var(--purple);color:#fff;padding:5px 8px;
+ border-radius:4px;letter-spacing:.05em}
+.email{background:var(--card);border:1px solid var(--line);border-radius:10px;
+ margin:0 0 14px;overflow:hidden}
+.ehead{background:#faf8f5;border-bottom:1px solid var(--line);padding:11px 17px;
+ font:600 13px/1.4 var(--mono);color:var(--purple);display:flex;gap:8px;flex-wrap:wrap;
+ align-items:baseline}
+.ehead .d{color:var(--orange)}
+.ehead .wc{margin-left:auto;font-weight:400;font-size:11.5px;color:var(--soft)}
+.ebody{padding:17px 19px;font-size:15.2px}
+.shot{margin:14px 0;padding:14px;background:#fbf9f6;border:1px dashed var(--line);
+ border-radius:8px;text-align:center}
+.shot img{width:230px;height:230px;display:block;margin:0 auto 8px}
+.shot span{font:11.5px/1.4 var(--mono);color:var(--soft)}
+.cta{margin:14px 19px 17px;padding:13px 15px;background:#f0fbf6;border:1px solid #bfe8d5;
+ border-left:3px solid var(--green);border-radius:7px;font-size:14.6px;color:#08694a}
+code{font:12.5px/1.5 var(--mono);background:#f0ecf7;color:var(--purple);padding:1.5px 5px;
+ border-radius:3px;word-break:break-word}
+.h .ehead{background:#f4fbf8;color:#08694a}.h .ehead .d{color:var(--green)}
+.risk .ehead{background:#fdf3f2;color:#a32b1c}.risk .ehead .d{color:var(--red)}
+@media (prefers-color-scheme:dark){
+ :root{--paper:#17131f;--card:#1f1a2b;--ink:#efeaf6;--soft:#a79fbb;--line:#332b45;--red:#ef8a7d}
+ .panel{background:#1f1a2b}
+ .ehead{background:#251f33;color:#c9bdf0}
+ .h .ehead{background:#16281f;color:#7ddcb5}
+ .risk .ehead{background:#2c1a18;color:#f0a294}
+ .shot{background:#251f33}
+ .cta{background:#132620;border-color:#2c5344;color:#7ddcb5}
+ code{background:#2d2542;color:#c9bdf0}}
+
+.pre{display:flex;gap:9px;align-items:baseline;padding:8px 19px;background:#fffaf4;
+ border-bottom:1px dashed var(--line);font-size:13.4px;color:var(--soft)}
+.pre span{font:600 10.5px/1.5 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+ color:var(--orange);flex:none}
+@media (prefers-color-scheme:dark){.pre{background:#241c14}}
+</style>
+<div class="wrap">
+<p class="eyebrow">Dental &middot; gatekeeper handoff &middot; fires when Coty submits a new contact</p>
+<h1>Reissuing wave 1 to the person who decides</h1>
+<p class="sub">Three emails and 8 reply handlers. Coty rings a practice, the front desk gives him the right person, and this goes to that person opening on the call rather than out of nowhere. James&rsquo;s second priority, ahead of any further waves.</p>
+<div class="panel src"><b class="hd">What James asked for, in his words</b><ul><li>&ldquo;Coty now talked to somebody, he talked to a gatekeeper, and he got a better contact for who the real decision maker is. So we have, in MediMarketing, fields for gatekeeper and decision maker, DM1, GK1. And based on those fields being entered, the emails would reach out and say, hey, I just talked to GK1, and they told me that this was the best email to reach out, and what I was reaching out about was this concerning XYZ.&rdquo;</li><li>&ldquo;Reissue wave one in a new way. I want that as the priority, as number two priority here.&rdquo; Ahead of wave 2 and wave 3, which he deprioritised in the same breath.</li><li>The field names match MediMarketing on purpose, so Lem can lift the automation rather than rebuild it.</li></ul></div>
+<div class="panel warn"><b class="hd">The name problem Coty raised, measured</b><p style="margin:0 0 7px">Coty: the name in the emails &ldquo;looks weird, it&rsquo;ll be the first name and then some piece of information about the office&rdquo;. He is right, and it is worse than it sounds.</p><p style="margin:0"><b>On the dental book, <code>first_name</code> is literally &ldquo;Dr&rdquo; on 344 rows and &ldquo;Doctor&rdquo; on 200 more. That is 544 of 1,219, 45%, opening &ldquo;Hi Dr,&rdquo;.</b> The <code>greeting</code> column is properly formed: 421 bare first names and 576 in &ldquo;Dr. Surname&rdquo; form, blank on 222. So this sequence uses the name Coty writes down on the call, falls back to <code>greeting</code>, and <b>never touches <code>first_name</code></b>. The build fails if it appears. Every other campaign should be checked for the same thing.</p></div>
+<div class="panel rules"><b class="hd">Before it can fire</b><ul><li><b>Two fields Coty fills on the call:</b> <code>gatekeeper_name</code> and <code>decision_maker</code>. Neither exists in the data because neither exists until the call happens. Both must be required on the outcome form, because an empty one puts a hole in the first line.</li><li><b>It signs Coty</b>, with the footer he supplied. He made the call, so it cannot sign anyone else.</li><li><b>The booking link still does not exist</b> as a custom value, and every message here ends on it.</li><li><b>Sending is still halted.</b> GoHighLevel caps out at five sending domains and needs a manual switch every 30 emails, so the team is testing Moan and SalesForge instead. Nothing here sends until one of those is working.</li></ul></div>
+<div class="wave"><div class="whd"><h2>The sequence</h2><span class="tag">DAY 1 / 2 / 3</span></div></div>
+<div class="email"><div class="ehead"><span class="d">Email 1 &middot; Day 1</span><span><code>{{contact.gatekeeper_name}}</code> suggested I reach out</span><span class="wc">124 words</span></div><div class="pre"><span>preheader</span>The handoff from the call, and the finding behind it.</div><div class="ebody">Hi <code>{{contact.decision_maker}}</code>,<br><br>I spoke with <code>{{contact.gatekeeper_name}}</code> at <code>{{contact.business_name}}</code> earlier today and they pointed me to you, so I'll get straight to why I<br>called.<br><br>We run visibility checks on dental practices across the Las Vegas valley. When somebody near you<br>searches for a dentist, Google hands back three names. <code>{{contact.nemesis_name}}</code> is coming up ahead of <code>{{contact.business_name}}</code> at <code>{{contact.nemesis_beats_fmt}}</code><br>of the <code>{{contact.found_pins_fmt}}</code> points we checked around your practice.<br><br>Here they are:<br><code>{{contact.nemesis_maps_url}}</code><br><br>At your own front door you come up <code>{{contact.home_rank_ordinal}}</code>.<br><br>That is the whole reason for the call, and it is the sort of thing nobody tells you because nobody<br>is looking. Fifteen minutes and I'll show you the full picture:<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email"><div class="ehead"><span class="d">Email 2 &middot; Day 2</span><span>the second problem at <code>{{contact.business_name}}</code></span><span class="wc">103 words</span></div><div class="pre"><span>preheader</span>Site speed, and why it compounds the first email.</div><div class="ebody">Hi <code>{{contact.decision_maker}}</code>,<br><br>Following up on what <code>{{contact.gatekeeper_name}}</code> passed along.<br><br>There is a second thing, and it has nothing to do with the map. Your site takes <code>{{contact.lcp_fmt}}</code> seconds to<br>show a visitor anything, against Google's own threshold of 2.5.<br><br>Here is why the two compound. Somebody searches, gets past <code>{{contact.nemesis_name}}</code>, actually taps through to you,<br>and then waits. Most of them don't. So the few searches you do win, you lose again on the way in.<br><br>Worth fifteen minutes to see what it is costing you? Grab a time here:<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email"><div class="ehead"><span class="d">Email 3 &middot; Day 3</span><span>two problems, both fixable</span><span class="wc">114 words</span></div><div class="pre"><span>preheader</span>The straight ask, and what fixing it is worth.</div><div class="ebody">Hi <code>{{contact.decision_maker}}</code>,<br><br>Last one from me, and then I'll leave it with you.<br><br><code>{{contact.nemesis_name}}</code> is ahead of <code>{{contact.business_name}}</code> at <code>{{contact.nemesis_beats_fmt}}</code> separate points around your own practice, and you come up <code>{{contact.home_rank_ordinal}}</code><br>at your front door. Neither of those fixes itself, and both are the sort of thing a competitor<br>quietly benefits from every week they go unaddressed.<br><br>Whoever handles your marketing should have caught this. There is more of it than fits in an email.<br><br>Fifteen minutes and I'll show you the lot:<br><code>{{custom_values.booking_link}}</code><br><br>Fixing this shows up as new patient appointments, and I've no doubt we can move it for you.<br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="wave"><div class="whd"><h2>Reply handlers</h2><span class="tag">8</span></div><p class="sub">These come from somebody who did not take the call themselves, so the second one matters most: they may have no idea why we have their address.</p></div>
+<div class="email h"><div class="ehead"><span class="d">YES / SHOW ME</span><span>they bite. The one this sequence exists for</span><span class="wc">54 words</span></div><div class="ebody">Good.<br><br>Fifteen minutes and I'll walk you through the whole picture for <code>{{contact.business_name}}</code>. Which searches you lose, who<br>takes them, and what it takes to get them back.<br><br>Grab a time here:<br><code>{{custom_values.booking_link}}</code><br><br>Or reply with your number and I'll call you.<br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email risk"><div class="ehead"><span class="d">WHO GAVE YOU MY DETAILS</span><span>the decision maker was not on the call and may not know why we have their address</span><span class="wc">79 words</span></div><div class="ebody"><code>{{contact.gatekeeper_name}}</code> did, when I rang <code>{{contact.business_name}}</code> earlier. I asked who the right person was and they gave me your name.<br><br>If they should not have, tell me and I'll take you off the list myself. But while I have you, the<br>finding is real and it costs you every week: <code>{{contact.nemesis_name}}</code> is ahead of you at <code>{{contact.nemesis_beats_fmt}}</code> of the <code>{{contact.found_pins_fmt}}</code> points<br>we checked.<br><br>Worth fifteen minutes?<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email "><div class="ehead"><span class="d">I ALREADY KNOW / WE ARE WORKING ON IT</span><span>somebody is already on it, or they think so</span><span class="wc">84 words</span></div><div class="ebody">Then you're ahead of most, and this is a question for whoever is doing it rather than a pitch from<br>me.<br><br><code>{{contact.business_name}}</code> is <code>{{contact.home_rank_ordinal}}</code> at its own front door and <code>{{contact.nemesis_name}}</code> is ahead at <code>{{contact.nemesis_beats_fmt}}</code> points. Ask them what the plan<br>is for those two numbers and when they move.<br><br>If you get a straight answer you're in good hands. If you don't, fifteen minutes will tell you which<br>it is:<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email "><div class="ehead"><span class="d">SEND ME THE DETAIL</span><span>they want it in writing before a call</span><span class="wc">83 words</span></div><div class="ebody">Happy to.<br><br>The short version for <code>{{contact.business_name}}</code>: <code>{{contact.nemesis_name}}</code> ahead at <code>{{contact.nemesis_beats_fmt}}</code> of the <code>{{contact.found_pins_fmt}}</code> points we checked, you at <code>{{contact.home_rank_ordinal}}</code><br>at your own front door, and a <code>{{contact.lcp_fmt}}</code> second load time on the site.<br><br>The part that takes ten minutes to explain is why, and that is the part that decides the fix. Easier<br>on a call, but say the word and I'll write it up.<br><br>Which would you rather?<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email "><div class="ehead"><span class="d">WHAT DOES IT COST</span><span>price, before anything else</span><span class="wc">66 words</span></div><div class="ebody">There's no cost to talk, and I don't yet know whether we're a good fit.<br><br>What I do know is that <code>{{contact.business_name}}</code> has a real problem with how it shows up, and I'd like to show you what it<br>is. Whether we work together or not you keep the full audit.<br><br>Fifteen minutes:<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email "><div class="ehead"><span class="d">WRONG PERSON AGAIN</span><span>the gatekeeper pointed at the wrong person</span><span class="wc">54 words</span></div><div class="ebody">No problem, and sorry for the runaround.<br><br><code>{{contact.gatekeeper_name}}</code> gave me your name when I rang, so the trail stopped with you. Who actually looks after<br>marketing for <code>{{contact.business_name}}</code>?<br><br>If it's easier, forward this on and they can grab a time directly:<br><code>{{custom_values.booking_link}}</code><br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email "><div class="ehead"><span class="d">NOT INTERESTED</span><span>a flat no</span><span class="wc">45 words</span></div><div class="ebody">Understood, and thanks for replying rather than leaving me guessing.<br><br>The findings for <code>{{contact.business_name}}</code> stay on file here. If it ever moves up your list, ask and I'll send them over,<br>no strings.<br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<div class="email risk"><div class="ehead"><span class="d">REMOVE ME</span><span>THEY HAVE OPTED OUT. No ask, on purpose</span><span class="wc">64 words</span></div><div class="ebody">Done. You're off the list and you won't hear from me again.<br><br>The finding is yours to keep either way. <code>{{contact.business_name}}</code> sits <code>{{contact.home_rank_ordinal}}</code> at its own front door and <code>{{contact.nemesis_name}}</code> is ahead<br>at <code>{{contact.nemesis_beats_fmt}}</code> of the <code>{{contact.found_pins_fmt}}</code> points we checked.<br><br>Nothing to sign and nothing owed. No need to reply to this.<br><br>Best,<br><br>Coty V McGowan<br>Director of Business Development<br>SGen<br>1 681-325-6967<br>Coty@sgen.com</div></div>
+<p class="sub" style="margin-top:34px">Draft for review, not approved copy. Merge fields verified against <code>ALL-DENTAL-WAVE2-SEND-LIST-559.csv</code>; the two call-time fields are filled by Coty. Name-field figures measured from the 151-column dental payload on 18 August 2026.</p>
+</div></body></html>

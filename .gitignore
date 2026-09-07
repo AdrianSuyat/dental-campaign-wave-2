@@ -1,2 +1,5 @@
 # Local credential/data files — do not commit
 email_list.xlsx
+
+# Generated invoice (personal deliverable)
+invoice.pdf

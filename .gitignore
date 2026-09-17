@@ -3,3 +3,6 @@ email_list.xlsx
 
 # Generated invoice (personal deliverable)
 invoice*.pdf
+
+# Credential export (personal)
+passwords.xlsx
